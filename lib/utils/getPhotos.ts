@@ -1,13 +1,21 @@
-import { PEXELS_API_KEY, PEXELS_API_URL } from '@/lib/constants';
+import {
+  endpoints,
+  MAX_PAGE_COUNT,
+  PEXELS_API_KEY,
+  PEXELS_API_URL
+} from '@/lib/constants';
 
-export async function getPhotos() {
+export async function getPhotos(url?: string) {
   try {
-    const response = await fetch(`${PEXELS_API_URL}?per_page=80`, {
-      headers: {
-        Authorization: PEXELS_API_KEY,
-        cache: 'only-if-cached'
+    const response = await fetch(
+      url ||
+        `${PEXELS_API_URL}/${endpoints.curatedPhotos}?per_page=${MAX_PAGE_COUNT}`,
+      {
+        headers: {
+          Authorization: PEXELS_API_KEY
+        }
       }
-    });
+    );
 
     if (response.ok) {
       return await response.json();

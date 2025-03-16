@@ -17,7 +17,9 @@ interface RootLayoutProp {
 export default function RootLayout({ children }: Readonly<RootLayoutProp>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`bg-amber-400 ${inter.className} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -20,3 +20,11 @@ export interface Photo {
   liked: boolean;
   alt: string;
 }
+
+export interface PhotosData {
+  photos: Photo[];
+  per_page: number;
+  total_results: number;
+  next_page: string;
+  prev_page: string;
+}
