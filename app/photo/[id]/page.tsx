@@ -7,7 +7,7 @@ import {
   IMAGE_TINY_WIDTH
 } from '@/lib/constants';
 import { getImageName } from '@/lib/utils/getImageName';
-import Link from 'next/link';
+import BackButton from '@/app/photo/[id]/BackButton';
 
 interface PhotoPageProps {
   params: Promise<{ id: string }>;
@@ -22,12 +22,12 @@ async function PhotoPage({ params }: PhotoPageProps) {
 
   const photoName = getImageName(photo.alt, photo.url);
   return (
-    <section className="grid grid-cols-1 md:grid-cols-6 p-5">
+    <section className="grid grid-cols-1 md:grid-cols-6 md:p-5">
       <div className="col-span-3 mx-auto p-5">
         <picture>
           <source
             media="(max-width: 400px)"
-            srcSet={photo.src.tiny}
+            srcSet={photo.src.medium}
             width={IMAGE_TINY_WIDTH}
             height={IMAGE_TINY_HEIGHT}
           />
@@ -37,6 +37,7 @@ async function PhotoPage({ params }: PhotoPageProps) {
             width={IMAGE_LARGE_WIDTH}
             height={IMAGE_LARGE_HEIGHT}
             style={{ background: photo.avg_color }}
+            className="w-auto max-h-screen object-contain"
           />
         </picture>
       </div>
@@ -52,7 +53,7 @@ async function PhotoPage({ params }: PhotoPageProps) {
                 target="_blank"
                 aria-label={`View ${photo.photographer}'s profile`}
                 href={photo.photographer_url}
-                className="text-gray-800 font-bold"
+                className="link font-bold"
               >
                 {photo.photographer}
               </a>{' '}
@@ -64,7 +65,7 @@ async function PhotoPage({ params }: PhotoPageProps) {
                 target="_blank"
                 aria-label={`View the original photo in ${photo.width} x ${photo.height} `}
                 href={photo.src.original}
-                className="text-gray-800 font-bold"
+                className="link font-bold"
               >
                 photo
               </a>{' '}
@@ -72,7 +73,7 @@ async function PhotoPage({ params }: PhotoPageProps) {
             </p>
           </div>
           <div>
-            <Link href="/"> {'<-'} Go back to Gallery</Link>
+            <BackButton />
           </div>
         </div>
       </div>
