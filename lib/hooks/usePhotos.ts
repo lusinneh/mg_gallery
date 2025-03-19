@@ -18,7 +18,7 @@ export function usePhotos(initialState?: PhotosData) {
     ) {
       document.removeEventListener('scroll', handleScroll);
 
-      if (!nextPageUrl) {
+      if (!nextPageUrl || !initialState?.photos) {
         return;
       }
 
@@ -27,10 +27,7 @@ export function usePhotos(initialState?: PhotosData) {
         if (res) {
           setState((state) => ({
             ...res,
-            photos: [
-              ...(state?.photos || initialState?.photos || []),
-              ...res.photos
-            ]
+            photos: [...(state?.photos || initialState.photos), ...res.photos]
           }));
         }
       });

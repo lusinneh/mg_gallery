@@ -1,13 +1,11 @@
 'use client';
 
 import { PhotosData } from '@/lib/types/photo';
-import Link from 'next/link';
-import { IMAGE_MEDIUM_HEIGHT, IMAGE_SMALL_HEIGHT } from '@/lib/constants';
 import { usePhotos } from '@/lib/hooks/usePhotos';
 import ImageWithLink from '@/components/MasonryGridLayout/ImageWithLink';
 
 interface MasonryGridLayoutProps {
-  photosData: PhotosData;
+  photosData?: PhotosData;
 }
 
 function MasonryGridLayout({ photosData }: MasonryGridLayoutProps) {

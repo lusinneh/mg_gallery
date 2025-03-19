@@ -5,9 +5,7 @@ export async function getPhotoById(id: string): Promise<Photo | undefined> {
   try {
     const response = await fetch(
       `${PEXELS_API_URL}/${endpoints.photoById}/${id}`,
-      {
-        headers: { Authorization: PEXELS_API_KEY }
-      }
+      { headers: { Authorization: PEXELS_API_KEY } }
     );
 
     if (response.ok) {
