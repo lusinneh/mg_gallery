@@ -1,7 +1,4 @@
 ## MG Gallery
-This is a test gallery application bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-It uses  to fetch photos. 
-
 MG Gallery is a responsive web application built with [Next.js](https://nextjs.org) and [TypeScript](https://www.typescriptlang.org/). It displays a collection of photos fetched from the [Pexels API](https://www.pexels.com/api/documentation/) in a visually appealing masonry grid layout. The application supports infinite scrolling to dynamically load more photos as the user scrolls to the bottom. Each photo in the gallery has link to the photo page for viewing image in higher quality and detailed information.
 
 This project is designed to provide an intuitive and seamless experience for users to browse images, with a focus on performance and responsiveness across devices.
